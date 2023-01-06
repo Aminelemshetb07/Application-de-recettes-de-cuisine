@@ -32,21 +32,15 @@
 
             <div action="/country&category.html" method="get" class="mx-2">
                 <div class="input-group">
-                    <select name="category" class="form-select">
-                        <option selected>Choose a Category</option>
-                        <option value="meat">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select name="category" class="form-select" id="selectCategory">
+                        <option selected>All Category</option>
                     </select>
 
-                    <select name="country" class="form-select">
-                        <option selected>Choose a country</option>
-                        <option value="one">One</option>
-                        <option value="two">Two</option>
-                        <option value="three">Three</option>
+                    <select name="country" class="form-select" id="selectCountry">
+                        <option selected>All country</option>
                     </select>
 
-                    <button class="btn " type="submit">Search</button>
+                    <button class="btn " type="submit" id="search">Search</button>
                 </div>
             </div>
 
