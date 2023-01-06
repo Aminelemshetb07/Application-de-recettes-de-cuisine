@@ -158,67 +158,48 @@ async function getCountries() {
 getCountries();
 // add countries in html
 function addCountries(data) {
-    for (let i = 0; i < data.length; i++) {
+  for (let i = 0; i < data.length; i++) {
     let meals = `<option value="${data[i].strArea}">${data[i].strArea}</option>`;
     document.querySelector("#selectCountry").innerHTML += meals;
-    }
-    console.log(data);
+  }
+  console.log(data);
 }
 
 document.getElementById("search").onclick = async function () {
     let selectedCategory = document.getElementById("selectCategory").value;
     let selectedCountry = document.getElementById("selectCountry").value;
     let dataCountry, dataCategory;
-let contryAndCategoryId ;
-    
+    let contryAndCategoryId = [];
+
   // console.log(selectedCategory, selectedCountry)
 
-    const response = await fetch
-    (
+    const response = await fetch(
     "https://www.themealdb.com/api/json/v1/1/filter.php?c=" + selectedCategory
     );
     dataCategory = await response.json();
   // console.log(dataCategory);
 
-    const res = await fetch
-    (
+    const res = await fetch(
     "https://www.themealdb.com/api/json/v1/1/filter.php?a=" + selectedCountry
     );
     dataCountry = await res.json();
   // console.log(dataCountry);
     console.log(dataCountry, dataCategory);
 
-    for (let i = 0; i < dataCategory.length; i++) {
-        for (let j = 0; j < dataCountry.length; j++) {
-            if (dataCategory[i] === dataCountry[j])
-            contryAndCategoryId.push(dataCategory[i]);
+    for (let i = 0; i < dataCategory.meals.length; i++) {
+    for (let j = 0; j < dataCountry.meals.length; j++) {
+        if (dataCategory.meals[i].idMeal == dataCountry.meals[j].idMeal)
+        contryAndCategoryId.push(dataCategory.meals[i]);
         }
     }
 
-console.log(contryAndCategoryId)
-
-
+    console.log(contryAndCategoryId);
 };
 
 
 
 
 
-
-
-
-
-// function BuildCardById(array1, array2) {
-//     let result = [];
-//       for (let i = 0; i < array1.length; i++) {
-//         for (let j = 0; j < array2.length; j++) {
-//           if (array1[i].idMeal === array2[j].idMeal) {
-//             result.push(array1[i]);
-//           }
-//               }
-//       }
-//     BuildCard(result)
-//   }
 
 
 
