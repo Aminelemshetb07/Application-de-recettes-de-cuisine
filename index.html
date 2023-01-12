@@ -4,14 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"rel="stylesheet"integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"crossorigin="anonymous"/>
     <link rel="stylesheet" href="style.css" />
-    <title>Affichage des recettes</title>
+    <title>Application de recettes</title>
   </head>
   <body>
     <header>
@@ -19,9 +14,8 @@
       <nav class="navbar navbar-expand-lg navbar-light col-md-8 mx-auto">
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav mx-auto text-center">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-            <a class="nav-link" href="#">Page1</a>
-            <a class="nav-link" href="#">Page2</a>
+            <a class="nav-link active" id="titleActive" aria-current="page" href="index.html">Home</a>
+            <a class="nav-link" href="page.html">Filter by category</a>
           </div>
         </div>
       </nav>
@@ -29,6 +23,20 @@
 
 
     <section class="container">
+      <div action="/country&category.html" method="get" class="mx-2" style="display: none;">
+        <div class="input-group">
+            <select name="category" class="form-select" id="selectCategory">
+                <option selected value="all">All Category</option>
+            </select>
+
+            <select name="country" class="form-select" id="selectCountry">
+                <option selected value="all">All country</option>
+            </select>
+
+            <button class="btn " type="submit" id="search">Search</button>
+        </div>
+      </div>
+
       <div action="/index.html" class="d-flex mx-2" role="search">
         <div class="input-group">
           <input
@@ -40,59 +48,37 @@
             aria-label="Search"
             aria-describedby="Search"
           />
-          <button class="btn" type="submit" id="Search">
-            Search
-          </button>
+          <button class="btn" type="submit" id="search">Search</button>
+          
         </div>
       </div>
 
       <div class="d-flex flex-wrap justify-content-around col-md-12 mx-auto" id="CardsContainer"></div>
-      
+
+      <nav aria-label="Page navigation example" id="indicators">
+        <ul class="pagination" id="pagination"></ul>
+      </nav>
     </section>
 
-
-
     <!-- Modal -->
-    <div
-      class="modal fade show"
-      id="exampleModal"
-      tabindex="-1"
-      aria-modal="true"
-    >
+    <div class="modal fade show" id="exampleModal"tabindex="-1"aria-modal="true">
       <div class="modal-dialog" >
         <div class="modal-content">
+
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Detailes repas</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+            <button type="button"class="btn-close"data-bs-dismiss="modal"aria-label="Close"></button>
           </div>
-          <div class="modal-body" id="mealInfo">
-            
-          </div>
+
+          <div class="modal-body" id="mealInfo"></div>
+          
           <div class="modal-footer" >
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
+            <button type="button"class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
           </div>
+
         </div>
       </div>
     </div>
-
-
-
-
-
-
-
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="niceScroll.js"></script>
@@ -100,14 +86,4 @@
     <script src="script.js"></script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
 
